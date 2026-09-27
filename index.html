@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SAMUEL WEB SOLUTIONS | Web • Design • Digital Solutions</title>
+<meta name="description" content="Samuel Web Solutions creates modern, mobile-friendly websites for businesses, schools, churches, organizations and individuals.">
+<meta name="theme-color" content="#060b16">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#060b16; --card:#0e1829; --line:rgba(255,255,255,.09);
+  --text:#f4f7fc; --muted:#9fb0c8; --blue:#3b82f6; --cyan:#22d3ee; --wa:#25d366;
+  --grad:linear-gradient(135deg,#22d3ee,#3b82f6);
+  --r:20px; --shadow:0 20px 50px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:Inter,system-ui,-apple-system,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.65;overflow-x:hidden}
+body.lock{overflow:hidden}
+h1,h2,h3,h4{font-family:Poppins,Inter,sans-serif;line-height:1.2}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer;border:0;background:none}
+.container{width:min(1140px,100% - 32px);margin-inline:auto}
+section{padding:90px 0;scroll-margin-top:72px}
+section.alt{background:linear-gradient(180deg,transparent,rgba(59,130,246,.05) 50%,transparent)}
+.kicker{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);margin-bottom:10px}
+.head{text-align:center;max-width:680px;margin:0 auto 44px}
+.head h2{font-size:clamp(1.7rem,4.5vw,2.6rem);margin-bottom:12px}
+.head p{color:var(--muted)}
+.grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border-radius:12px;font-weight:700;font-size:.88rem;letter-spacing:.05em;text-transform:uppercase;transition:transform .2s,box-shadow .2s,border-color .2s;border:1px solid transparent;text-align:center}
+.btn svg{width:20px;height:20px;flex:none}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:scale(.98)}
+.btn-primary{background:var(--grad);color:#fff;box-shadow:0 10px 28px rgba(59,130,246,.35)}
+.btn-wa{background:var(--wa);color:#062611;box-shadow:0 10px 28px rgba(37,211,102,.3)}
+.btn-ghost{border-color:var(--line);background:rgba(255,255,255,.04);color:var(--text)}
+.btn-ghost:hover{border-color:rgba(34,211,238,.5)}
+
+/* Header */
+.header{position:fixed;top:0;left:0;right:0;z-index:100;border-bottom:1px solid transparent;transition:background .3s,border-color .3s}
+.header.scrolled,.header.menu-open{background:rgba(6,11,22,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line)}
+.nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{display:flex;align-items:center;gap:10px;min-width:0}
+.logo-mark{width:42px;height:42px;border-radius:12px;background:var(--grad);display:grid;place-items:center;font:800 1.15rem Poppins,sans-serif;color:#fff;flex:none;box-shadow:0 8px 20px rgba(59,130,246,.35)}
+.logo-text b{display:block;font:700 .95rem/1.15 Poppins,sans-serif;letter-spacing:.02em}
+.logo-text small{display:block;font-size:.6rem;letter-spacing:.16em;color:var(--muted);font-weight:600}
+.menu{display:flex;align-items:center;gap:26px}
+.menu a{font-weight:500;color:var(--muted);font-size:.95rem;transition:color .2s}
+.menu a:hover,.menu a.active{color:#fff}
+.menu .btn{color:#062611;min-height:44px;padding:0 18px;font-size:.78rem}
+.burger{display:none;width:44px;height:44px;border-radius:10px;border:1px solid var(--line);position:relative;flex:none}
+.burger span{position:absolute;left:11px;width:20px;height:2px;background:#fff;border-radius:2px;transition:.25s}
+.burger span:nth-child(1){top:14px}.burger span:nth-child(2){top:20px}.burger span:nth-child(3){top:26px}
+.burger.on span:nth-child(1){top:20px;transform:rotate(45deg)}
+.burger.on span:nth-child(2){opacity:0}
+.burger.on span:nth-child(3){top:20px;transform:rotate(-45deg)}
+
+/* Hero */
+.hero{padding:130px 0 80px;position:relative;overflow:hidden}
+.hero::before,.hero::after{content:"";position:absolute;border-radius:50%;pointer-events:none}
+.hero::before{width:620px;height:620px;top:-220px;right:-220px;background:radial-gradient(circle,rgba(59,130,246,.25),transparent 65%)}
+.hero::after{width:500px;height:500px;bottom:-250px;left:-200px;background:radial-gradient(circle,rgba(34,211,238,.15),transparent 65%)}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;position:relative;z-index:1}
+.tagline{display:inline-flex;align-items:center;gap:10px;padding:8px 16px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.04);font-size:.72rem;font-weight:700;letter-spacing:.18em;color:#cfe0f7;margin-bottom:22px}
+.tagline i{width:8px;height:8px;border-radius:50%;background:var(--cyan);box-shadow:0 0 12px var(--cyan);animation:blink 2s infinite}
+@keyframes blink{50%{opacity:.35}}
+.hero h1{font-size:clamp(2.2rem,7vw,4.2rem);font-weight:800;letter-spacing:-.02em;margin-bottom:14px}
+.hero h2{font-size:clamp(1.1rem,3vw,1.5rem);font-weight:600;color:#cfe0f7;margin-bottom:10px}
+.hero .lead{font-size:clamp(1rem,2.4vw,1.15rem);color:var(--muted);margin-bottom:30px}
+.actions{display:flex;flex-wrap:wrap;gap:14px}
+.hero-points{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:30px;color:var(--muted);font-size:.9rem}
+.hero-points span::before{content:"✓";color:var(--cyan);font-weight:700;margin-right:8px}
+.hero-visual{display:flex;justify-content:center}
+.phone-wrap{position:relative;padding:0 30px}
+.phone{display:block;width:min(270px,100%);padding:10px;border-radius:36px;background:linear-gradient(160deg,#1b2a45,#0a1220);border:1px solid rgba(255,255,255,.12);box-shadow:0 30px 80px rgba(0,0,0,.5),0 0 0 1px rgba(59,130,246,.15)}
+.phone img{width:100%;aspect-ratio:9/19;object-fit:cover;object-position:top;border-radius:27px;background:#0b1424}
+.hero .phone{animation:float 6s ease-in-out infinite;margin:0 auto}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.float-badge{position:absolute;padding:10px 14px;border-radius:14px;background:rgba(14,24,41,.94);border:1px solid var(--line);font-size:.8rem;font-weight:600;box-shadow:var(--shadow);white-space:nowrap}
+.fb1{top:16%;left:0}.fb2{bottom:22%;right:0}
+.hero-caption{text-align:center;color:var(--muted);font-size:.82rem;margin-top:16px}
+
+/* Cards */
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);transition:transform .25s,border-color .25s}
+.card:hover{transform:translateY(-5px);border-color:rgba(59,130,246,.45)}
+.ic{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;font-size:1.45rem;flex:none;background:linear-gradient(135deg,rgba(34,211,238,.16),rgba(59,130,246,.18));border:1px solid rgba(59,130,246,.25)}
+
+/* About */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
+.about-text h2{font-size:clamp(1.7rem,4.5vw,2.5rem);margin-bottom:16px}
+.about-text p{color:var(--muted);margin-bottom:14px}
+.about-list{display:grid;gap:14px}
+.about-item{display:flex;gap:16px;padding:18px}
+.about-item h4{font-size:1rem;margin-bottom:2px}
+.about-item p{font-size:.9rem;color:var(--muted)}
+
+/* Services / Why */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.service{padding:28px}
+.service .ic{margin-bottom:18px}
+.service h3{font-size:1.1rem;margin-bottom:8px}
+.service p{color:var(--muted);font-size:.93rem}
+.why{padding:24px;display:flex;gap:16px;align-items:flex-start}
+.why h3{font-size:1.05rem;margin-bottom:4px}
+.why p{color:var(--muted);font-size:.9rem}
+
+/* Work */
+.featured{display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center;padding:32px;border-radius:28px;background:linear-gradient(135deg,rgba(34,211,238,.07),rgba(59,130,246,.05)),var(--card);border:1px solid var(--line);margin-bottom:28px}
+.shots{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:8px 4px 14px;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
+.shots .phone{flex:0 0 200px;padding:7px;border-radius:28px;scroll-snap-align:center;cursor:zoom-in;transition:transform .25s}
+.shots .phone img{border-radius:22px}
+.shots .phone:hover{transform:translateY(-6px)}
+.swipe{display:none;text-align:center;font-size:.8rem;color:var(--muted)}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.tag{display:inline-flex;align-items:center;padding:6px 12px;border-radius:999px;font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;background:rgba(59,130,246,.15);color:#a9c8ff;border:1px solid rgba(59,130,246,.35);white-space:nowrap}
+.tag.live{background:rgba(37,211,102,.12);color:#8ff0b5;border-color:rgba(37,211,102,.35)}
+.tag.live::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--wa);margin-right:6px}
+.tag.demo{background:rgba(251,146,60,.16);color:#fdc28c;border-color:rgba(251,146,60,.5)}
+.featured h3{font-size:clamp(1.4rem,3.5vw,1.9rem);margin-bottom:12px}
+.featured p{color:var(--muted);margin-bottom:18px}
+.features-mini{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.features-mini span{font-size:.8rem;padding:6px 10px;border-radius:8px;background:rgba(255,255,255,.05);border:1px solid var(--line);color:#cfe0f7}
+
+.demo-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.demo-card{overflow:hidden;display:flex;flex-direction:column}
+.demo-card .body{padding:24px;display:flex;flex-direction:column;flex:1}
+.demo-card h3{font-size:1.25rem;margin-bottom:8px}
+.demo-card p{color:var(--muted);font-size:.93rem;margin-bottom:20px;flex:1}
+.demo-card .row{display:flex;gap:10px}
+.demo-card .row .btn{flex:1;padding:0 14px}
+.prev{position:relative;height:250px;overflow:hidden;cursor:pointer}
+.prev .ribbon{position:absolute;top:14px;right:14px;z-index:3;box-shadow:0 6px 16px rgba(0,0,0,.3);background:#f97316;color:#fff;border-color:#f97316}
+.p-salon{background:linear-gradient(135deg,#2a1e08,#5a4214)}
+.p-resto{background:linear-gradient(135deg,#4a1206,#9a3412)}
+.win{position:absolute;inset:22px 22px 0;border-radius:14px 14px 0 0;overflow:hidden;box-shadow:0 -10px 40px rgba(0,0,0,.35);transition:transform .4s}
+.demo-card:hover .win{transform:translateY(-6px)}
+.win .bar{height:26px;display:flex;align-items:center;gap:5px;padding:0 10px;background:rgba(0,0,0,.4)}
+.win .bar i{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.4)}
+.mini{height:calc(100% - 26px);padding:14px 16px;font-size:.7rem}
+.mini em{font-style:normal}
+.mini-nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;font-family:Poppins,sans-serif;font-size:.8rem}
+.mini-hero small{font-size:.55rem;letter-spacing:.2em;opacity:.8;font-weight:700}
+.mini-hero h4{font-size:1.2rem;margin:4px 0 10px}
+.mini-btn{display:inline-block;padding:6px 12px;border-radius:999px;font-weight:700;font-size:.6rem;text-transform:uppercase;letter-spacing:.05em}
+.mini-rows{margin-top:14px;display:grid;gap:6px}
+.mini-rows div{display:flex;justify-content:space-between;padding:7px 10px;border-radius:8px}
+.s-mini{background:linear-gradient(160deg,#17130c,#0e0d0b);color:#f3efe6}
+.s-mini em{color:#d4a24c}.s-mini .mini-btn{background:#d4a24c;color:#1a1408}
+.s-mini .mini-rows div{background:rgba(212,162,76,.12)}
+.r-mini{background:#fffaf3;color:#2b1d14}
+.r-mini em{color:#e4572e}.r-mini .mini-btn{background:#e4572e;color:#fff}
+.r-mini .mini-rows div{background:#fff;border:1px solid #f0e4d6}
+
+/* Steps */
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;position:relative}
+.steps::before{content:"";position:absolute;top:28px;left:10%;right:10%;height:2px;background:var(--grad);opacity:.4}
+.step{text-align:center;position:relative}
+.num{width:56px;height:56px;margin:0 auto 16px;border-radius:50%;display:grid;place-items:center;font:700 1.2rem Poppins,sans-serif;background:var(--grad);color:#fff;box-shadow:0 0 0 6px var(--bg),0 10px 26px rgba(59,130,246,.4);position:relative;z-index:1}
+.step h3{font-size:1rem;margin-bottom:6px}
+.step p{font-size:.88rem;color:var(--muted)}
+
+/* Contact */
+.contact{display:grid;grid-template-columns:1.1fr .9fr;gap:36px;padding:40px;border-radius:28px;background:radial-gradient(circle at top right,rgba(59,130,246,.22),transparent 55%),var(--card);border:1px solid var(--line)}
+.contact h2{font-size:clamp(1.6rem,4.5vw,2.4rem);margin-bottom:12px}
+.contact > div > p{color:var(--muted);margin-bottom:24px}
+.c-items{display:grid;gap:14px}
+.c-item{display:flex;align-items:center;gap:16px;padding:18px;border-radius:16px;background:rgba(255,255,255,.04);border:1px solid var(--line);transition:border-color .2s}
+.c-item:hover{border-color:rgba(59,130,246,.5)}
+.c-item .ic.wa{background:rgba(37,211,102,.15);border-color:rgba(37,211,102,.35);color:var(--wa)}
+.c-item .ic svg{width:26px;height:26px}
+.c-item small{display:block;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.c-item b{font-size:1.2rem;letter-spacing:.03em}
+.c-actions{display:flex;flex-direction:column;justify-content:center;gap:14px}
+.c-brand{text-align:center;font:800 1.3rem Poppins,sans-serif;margin-bottom:6px}
+.c-brand small{display:block;font:600 .68rem Inter,sans-serif;letter-spacing:.18em;color:var(--muted);margin-top:4px}
+.c-actions .btn{width:100%;min-height:58px}
+
+footer{padding:36px 0 100px;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
+.foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px}
+.foot-links{display:flex;flex-wrap:wrap;gap:18px}
+.foot-links a:hover{color:#fff}
+
+/* Floating WhatsApp */
+.fab{position:fixed;right:18px;bottom:18px;z-index:90;width:60px;height:60px;border-radius:50%;background:var(--wa);color:#fff;display:grid;place-items:center;box-shadow:0 12px 30px rgba(37,211,102,.45);transition:transform .2s}
+.fab:hover{transform:scale(1.08)}
+.fab svg{width:32px;height:32px}
+.fab::before{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid var(--wa);animation:ring 2.2s infinite}
+@keyframes ring{0%{transform:scale(1);opacity:.8}100%{transform:scale(1.6);opacity:0}}
+
+/* Reveal */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* Modals */
+.modal{position:fixed;inset:0;z-index:1000;background:rgba(3,7,15,.9);display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s}
+.modal.open{opacity:1;visibility:visible}
+.lb{position:relative;width:min(440px,100%);padding:60px 16px 20px;text-align:center}
+.lb-close{position:absolute;top:10px;right:14px;width:44px;height:44px;border-radius:12px;background:rgba(255,255,255,.1);font-size:1.6rem;color:#fff}
+.lb-title{position:absolute;top:20px;left:18px;font-weight:700;font-size:.9rem;color:#cfe0f7}
+.lb-stage{position:relative;display:flex;justify-content:center}
+.lb .phone{width:min(290px,76vw,calc((100vh - 240px) * .47))}
+.lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:rgba(14,24,41,.92);border:1px solid var(--line);color:#fff;font-size:1rem;z-index:2}
+.lb-prev{left:0}.lb-next{right:0}
+.lb-count{color:var(--muted);font-size:.85rem;margin:12px 0}
+
+.demo-modal{align-items:stretch;padding:20px}
+.demo-shell{width:min(1000px,100%);display:flex;flex-direction:column;border-radius:20px;overflow:hidden;transform:translateY(30px);transition:transform .35s;box-shadow:var(--shadow)}
+.modal.open .demo-shell{transform:none}
+.demo-bar{display:flex;align-items:center;gap:12px;padding:10px 12px 10px 16px;background:#0a1222;border-bottom:1px solid var(--line);flex:none}
+.demo-bar strong{flex:1;font-size:.9rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.demo-x{width:42px;height:42px;border-radius:10px;background:rgba(255,255,255,.1);font-size:1.5rem;color:#fff;flex:none}
+.demo-body{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;position:relative}
+.demo-note{padding:10px 16px;font-size:.8rem;text-align:center;background:#fff3cd;color:#5c4300;font-weight:600}
+.demo-cta{padding:44px 20px;text-align:center;background:#0a1222;color:#fff}
+.demo-cta h4{font-size:1.3rem;margin-bottom:8px}
+.demo-cta p{color:var(--muted);margin-bottom:20px;font-size:.95rem}
+
+/* Salon demo */
+.salon .demo-body{background:#0e0d0b;color:#f3efe6}
+.s-nav{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid rgba(212,162,76,.2)}
+.s-logo{font:800 1.1rem Poppins,sans-serif;letter-spacing:.08em}
+.s-logo span{color:#d4a24c}
+.s-links{display:flex;gap:18px}
+.s-links button{font-size:.85rem;color:#cfc6b5}
+.s-hero{padding:72px 20px;text-align:center;background:radial-gradient(circle at 50% 0,rgba(212,162,76,.28),transparent 60%),linear-gradient(180deg,#15120c,#0e0d0b)}
+.s-hero small{letter-spacing:.3em;color:#d4a24c;font-size:.72rem;font-weight:700}
+.s-hero h2{font-size:clamp(2rem,7vw,3.4rem);margin:12px 0}
+.s-hero h2 span{color:#d4a24c}
+.s-hero p{color:#b9b0a0;max-width:520px;margin:0 auto 26px}
+.s-row{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.s-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 22px;border-radius:999px;font-weight:700;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;background:#d4a24c;color:#1a1408}
+.s-btn.o{background:transparent;border:1px solid #d4a24c;color:#d4a24c}
+.s-sec{padding:56px 20px;max-width:900px;margin:0 auto}
+.s-sec h3{font-size:1.6rem;text-align:center;margin-bottom:6px}
+.s-sub{text-align:center;color:#b9b0a0;font-size:.9rem;margin-bottom:28px}
+.s-prices{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.s-price{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 18px;border:1px solid rgba(212,162,76,.2);border-radius:14px;background:#15130f}
+.s-price b{display:block}
+.s-price small{color:#9d9482;font-size:.8rem}
+.s-price span{color:#d4a24c;font-weight:800;white-space:nowrap}
+.s-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.s-tile{aspect-ratio:1;border-radius:14px;display:flex;align-items:flex-end;padding:12px;font-weight:700;font-size:.85rem;position:relative;overflow:hidden;color:#fff}
+.s-tile::before{content:"✂";position:absolute;top:10px;right:12px;opacity:.4;font-size:1.3rem}
+.s-tile:nth-child(1){background:linear-gradient(135deg,#3b2a10,#8a6424)}
+.s-tile:nth-child(2){background:linear-gradient(135deg,#1f1f1f,#4d4d4d)}
+.s-tile:nth-child(3){background:linear-gradient(135deg,#2d1a0c,#6b3f1c)}
+.s-tile:nth-child(4){background:linear-gradient(135deg,#141a22,#3a4a5c)}
+.s-tile:nth-child(5){background:linear-gradient(135deg,#3a2508,#b0822f)}
+.s-tile:nth-child(6){background:linear-gradient(135deg,#221410,#5a3a2e)}
+.s-form{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:22px;border-radius:18px;background:#15130f;border:1px solid rgba(212,162,76,.2)}
+.s-form label{font-size:.78rem;color:#b9b0a0;display:grid;gap:6px;font-weight:600}
+.s-form input,.s-form select{min-height:46px;padding:0 12px;border-radius:10px;border:1px solid #3a3326;background:#0e0d0b;color:#f3efe6;width:100%}
+.s-form .full{grid-column:1/-1}
+.s-info{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.s-box{padding:20px;border-radius:14px;background:#15130f;border:1px solid rgba(212,162,76,.2)}
+.s-box h4{color:#d4a24c;margin-bottom:8px}
+.s-box p{color:#b9b0a0;font-size:.9rem;margin-bottom:12px}
+
+/* Restaurant demo */
+.resto .demo-body{background:#fffaf3;color:#2b1d14}
+.r-nav{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;background:#fff;border-bottom:1px solid #f0e4d6}
+.r-logo{font:800 1.1rem Poppins,sans-serif}
+.r-logo span{color:#e4572e}
+.r-links{display:flex;gap:18px}
+.r-links button{font-size:.85rem;color:#6d5a4b;font-weight:500}
+.r-hero{padding:64px 20px;text-align:center;background:linear-gradient(160deg,#fff1e2,#ffdcc4)}
+.r-emojis{font-size:2.2rem;letter-spacing:.3em}
+.r-hero h2{font-size:clamp(2rem,7vw,3.2rem);margin:10px 0}
+.r-hero h2 span{color:#e4572e}
+.r-hero p{color:#6d5a4b;max-width:520px;margin:0 auto 24px}
+.r-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 22px;border-radius:12px;font-weight:700;font-size:.82rem;letter-spacing:.05em;text-transform:uppercase;background:#e4572e;color:#fff}
+.r-btn.o{background:#fff;color:#e4572e;border:1px solid #e4572e}
+.r-sec{padding:52px 20px;max-width:900px;margin:0 auto}
+.r-sec h3{text-align:center;font-size:1.6rem;margin-bottom:6px}
+.r-sub{text-align:center;color:#8a7564;font-size:.9rem;margin-bottom:22px}
+.r-tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:18px;scrollbar-width:none}
+.r-tabs button:first-child{margin-left:auto}.r-tabs button:last-child{margin-right:auto}
+.r-tab{flex:none;padding:10px 16px;border-radius:999px;background:#fff;border:1px solid #f0e4d6;font-weight:600;font-size:.85rem;color:#6d5a4b}
+.r-tab.on{background:#e4572e;color:#fff;border-color:#e4572e}
+.r-menu{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.r-item{display:flex;align-items:center;gap:14px;padding:14px;border-radius:16px;background:#fff;border:1px solid #f0e4d6;box-shadow:0 4px 14px rgba(120,60,20,.05)}
+.r-emoji{width:52px;height:52px;border-radius:14px;background:#fff1e2;display:grid;place-items:center;font-size:1.6rem;flex:none}
+.r-item .info{flex:1;min-width:0}
+.r-item b{display:block;font-size:.95rem}
+.r-item span{color:#e4572e;font-weight:700;font-size:.9rem}
+.r-add{width:42px;height:42px;border-radius:12px;background:#e4572e;color:#fff;font-size:1.4rem;flex:none;transition:transform .15s}
+.r-add.pop{transform:scale(1.2)}
+.r-order{padding:22px;border-radius:18px;background:#fff;border:1px solid #f0e4d6;max-width:560px;margin:0 auto}
+.r-line{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 0;border-bottom:1px dashed #f0e4d6;font-size:.92rem}
+.r-qty{display:flex;align-items:center;gap:8px;font-weight:700}
+.r-qty button{width:32px;height:32px;border-radius:8px;background:#fff1e2;color:#e4572e;font-weight:800}
+.r-total{display:flex;justify-content:space-between;font-weight:800;font-size:1.1rem;padding:14px 0}
+.r-empty{color:#8a7564;text-align:center;padding:16px 0;font-size:.9rem}
+.r-order .r-btn{width:100%;margin-top:6px}
+.r-clear{display:block;margin:12px auto 0;font-size:.85rem;color:#8a7564;text-decoration:underline}
+.r-info{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.r-box{padding:20px;border-radius:16px;background:#fff;border:1px solid #f0e4d6}
+.r-box h4{margin-bottom:8px;color:#e4572e}
+.r-box p{color:#6d5a4b;font-size:.9rem;margin-bottom:12px}
+.r-map{height:170px;border-radius:16px;margin-top:12px;display:grid;place-items:center;text-align:center;color:#8a7564;font-size:.85rem;background:repeating-linear-gradient(45deg,#f6ebdd 0 14px,#fbf3e9 14px 28px);border:1px solid #f0e4d6}
+.r-cartbar{position:sticky;bottom:14px;margin:0 auto 14px;width:calc(100% - 32px);max-width:420px;display:none;align-items:center;justify-content:space-between;gap:10px;padding:14px 18px;border-radius:14px;background:#2b1d14;color:#fff;font-weight:600;box-shadow:0 10px 30px rgba(0,0,0,.3);z-index:5}
+.r-cartbar.show{display:flex}
+
+/* Toast */
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,150%);z-index:5000;width:min(440px,calc(100% - 32px));padding:14px 18px;border-radius:14px;background:#111c30;color:#fff;border:1px solid rgba(59,130,246,.45);box-shadow:var(--shadow);font-size:.9rem;text-align:center;transition:transform .35s}
+.toast.show{transform:translate(-50%,0)}
+
+/* Responsive */
+@media (max-width:980px){
+  .hero-grid,.about-grid,.featured,.contact{grid-template-columns:1fr}
+  .grid3{grid-template-columns:1fr 1fr}
+  .hero{text-align:center}
+  .hero .actions,.hero-points{justify-content:center}
+}
+@media (max-width:860px){
+  .burger{display:block}
+  .menu{position:fixed;top:72px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;padding:8px 16px 20px;background:rgba(6,11,22,.98);border-bottom:1px solid var(--line);opacity:0;visibility:hidden;transform:translateY(-10px);transition:.25s}
+  .menu.open{opacity:1;visibility:visible;transform:none}
+  .menu a{padding:14px 4px;border-bottom:1px solid var(--line);font-size:1rem}
+  .menu .btn{margin-top:16px;min-height:52px;border-bottom:0;font-size:.85rem}
+  .steps{grid-template-columns:1fr;gap:0}
+  .steps::before{top:10px;bottom:30px;left:27px;right:auto;width:2px;height:auto}
+  .step{display:flex;text-align:left;gap:18px;padding-bottom:26px}
+  .num{margin:0}
+}
+@media (max-width:640px){
+  section{padding:70px 0}
+  .hero{padding:110px 0 60px}
+  .grid3,.demo-grid,.s-prices,.r-menu,.s-info,.r-info,.s-form{grid-template-columns:1fr}
+  .actions{flex-direction:column}
+  .actions .btn{width:100%}
+  .hero .phone{width:220px}
+  .float-badge{font-size:.72rem;padding:8px 10px}
+  .featured{padding:18px;border-radius:22px}
+  .contact{padding:24px;border-radius:22px}
+  .shots .phone{flex-basis:170px}
+  .swipe{display:block}
+  .s-links,.r-links{display:none}
+  .s-gallery{grid-template-columns:1fr 1fr}
+  .logo-text b{font-size:.82rem}
+  .logo-text small{font-size:.52rem;letter-spacing:.1em}
+  .demo-card .row{flex-direction:column}
+  .demo-modal{padding:0}
+  .demo-shell{border-radius:0}
+  .lb-prev{left:-4px}.lb-next{right:-4px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+  .hero .phone,.fab::before,.tagline i{animation:none}
+}
+</style>
+</head>
+<body>
+
+<!-- WhatsApp icon (reused) -->
+<svg style="display:none" aria-hidden="true">
+  <symbol id="wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></symbol>
+</svg>
+
+<!-- ================= HEADER ================= -->
+<header class="header" id="header">
+  <div class="container nav">
+    <a href="#home" class="logo" aria-label="Samuel Web Solutions home">
+      <span class="logo-mark">S</span>
+      <span class="logo-text"><b>SAMUEL WEB SOLUTIONS</b><small>WEB • DESIGN • DIGITAL SOLUTIONS</small></span>
+    </a>
+    <nav class="menu" id="menu">
+      <a href="#home" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#work">My Work</a>
+      <a href="#process">How It Works</a>
+      <a href="#contact">Contact</a>
+      <a class="btn btn-wa" href="https://wa.me/2347016855812?text=Hello%20Samuel%20Web%20Solutions%2C%20I%20would%20like%20to%20discuss%20a%20website." target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Chat on WhatsApp</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+<!-- ================= 1. HOME ================= -->
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div class="reveal">
+      <div class="tagline"><i></i>WEB • DESIGN • DIGITAL SOLUTIONS</div>
+      <h1>SAMUEL <span class="grad">WEB</span> SOLUTIONS</h1>
+      <h2>Professional Website Development</h2>
+      <p class="lead">"Build your business. Reach more customers."</p>
+      <div class="actions">
+        <a href="#work" class="btn btn-primary">View My Work →</a>
+        <a href="https://wa.me/2347016855812?text=Hello%20Samuel%20Web%20Solutions%2C%20I%20would%20like%20to%20discuss%20a%20website." target="_blank" rel="noopener" class="btn btn-wa"><svg><use href="#wa"/></svg>Chat on WhatsApp</a>
+      </div>
+      <div class="hero-points"><span>Mobile-friendly</span><span>Modern design</span><span>WhatsApp-ready</span></div>
+    </div>
+
+    <div class="hero-visual reveal">
+      <div class="phone-wrap">
+        <div class="phone"><img src="images/oceanography-1.jpg" alt="Oceanography & Fisheries Science Hub website on a phone"></div>
+        <div class="float-badge fb1">📱 Mobile-Friendly</div>
+        <div class="float-badge fb2">💬 WhatsApp Ready</div>
+        <p class="hero-caption">Recent project: Oceanography &amp; Fisheries Science Hub</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 2. ABOUT ================= -->
+<section id="about" class="alt">
+  <div class="container about-grid">
+    <div class="about-text reveal">
+      <span class="kicker">About</span>
+      <h2>Modern websites that help you <span class="grad">grow online</span></h2>
+      <p>Samuel Web Solutions creates modern, mobile-friendly websites for businesses, schools, churches, organizations and individuals.</p>
+      <p>Most people browse on their phones, so every website is designed to look clean and be easy to use on Android phones as well as computers. Visitors can quickly find your information and contact you directly on WhatsApp.</p>
+    </div>
+    <div class="about-list reveal">
+      <div class="card about-item"><span class="ic">📱</span><div><h4>Built for phones first</h4><p>Layouts that fit small screens perfectly, with big, easy-to-tap buttons.</p></div></div>
+      <div class="card about-item"><span class="ic">🎨</span><div><h4>Clean, modern design</h4><p>A professional look that presents your brand with confidence.</p></div></div>
+      <div class="card about-item"><span class="ic">💬</span><div><h4>Easy customer contact</h4><p>WhatsApp and call buttons so customers can reach you in one tap.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 3. SERVICES ================= -->
+<section id="services">
+  <div class="container">
+    <div class="head reveal">
+      <span class="kicker">Services</span>
+      <h2>What I <span class="grad">build</span></h2>
+      <p>Websites designed around your goals, with a clear structure and a professional finish.</p>
+    </div>
+    <div class="grid3">
+      <article class="card service reveal"><span class="ic">💼</span><h3>Business Websites</h3><p>Show your services, prices and contact details professionally and make it easy for customers to reach you.</p></article>
+      <article class="card service reveal"><span class="ic">🎓</span><h3>School Websites</h3><p>Pages for admissions, academics, news, events and contact information for parents and students.</p></article>
+      <article class="card service reveal"><span class="ic">⛪</span><h3>Church Websites</h3><p>Share service times, programs, ministries, events and a warm welcome for new visitors.</p></article>
+      <article class="card service reveal"><span class="ic">🧑‍💻</span><h3>Portfolio Websites</h3><p>Showcase your work, skills and achievements with a clean personal website.</p></article>
+      <article class="card service reveal"><span class="ic">🛍️</span><h3>Online Store Websites</h3><p>Display your products, prices and categories, with customers ordering easily through WhatsApp.</p></article>
+      <article class="card service reveal"><span class="ic">🛠️</span><h3>Website Maintenance</h3><p>Content updates, design improvements and fixes to keep your website fresh and working well.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 4. MY WORK ================= -->
+<section id="work" class="alt">
+  <div class="container">
+    <div class="head reveal">
+      <span class="kicker">My Work</span>
+      <h2>Recent <span class="grad">projects</span></h2>
+      <p>Explore a live website I built, plus demo projects showing what I can create for your business.</p>
+    </div>
+
+    <!-- Project 1 -->
+    <article class="featured reveal">
+      <div>
+        <div class="shots">
+          <button class="phone" type="button" data-open="shotModal" data-index="0" aria-label="Enlarge screenshot 1"><img src="images/oceanography-1.jpg" alt="Oceanography Hub homepage" loading="lazy"></button>
+          <button class="phone" type="button" data-open="shotModal" data-index="1" aria-label="Enlarge screenshot 2"><img src="images/oceanography-2.jpg" alt="Oceanography Hub course filters" loading="lazy"></button>
+          <button class="phone" type="button" data-open="shotModal" data-index="2" aria-label="Enlarge screenshot 3"><img src="images/oceanography-3.jpg" alt="Oceanography Hub course cards" loading="lazy"></button>
+        </div>
+        <p class="swipe">← Swipe for more · Tap to enlarge →</p>
+      </div>
+      <div>
+        <div class="tags"><span class="tag">Educational Website</span><span class="tag live">Live Website</span></div>
+        <h3>Oceanography &amp; Fisheries Science Hub</h3>
+        <p>A modern educational website concept for oceanography, fisheries science, aquaculture and marine science.</p>
+        <div class="features-mini">
+          <span>Course catalogue</span><span>Category filters</span><span>Level filter</span><span>Course cards</span><span>Mobile layout</span><span>WhatsApp button</span>
+        </div>
+        <div class="actions">
+          <a class="btn btn-primary" href="https://019ec0bf-98fa-7893-b6cd-9d89579c4ab1.arena.site/" target="_blank" rel="noopener">View Live Website ↗</a>
+          <button class="btn btn-ghost" type="button" data-open="shotModal" data-index="0">View Screenshots</button>
+        </div>
+      </div>
+    </article>
+
+    <div class="demo-grid">
+      <!-- Project 2 -->
+      <article class="card demo-card reveal">
+        <div class="prev p-salon" data-open="salonDemo" role="button" tabindex="0" aria-label="Open barbing salon demo">
+          <span class="tag demo ribbon">Demo Project</span>
+          <div class="win"><div class="bar"><i></i><i></i><i></i></div>
+            <div class="mini s-mini">
+              <div class="mini-nav"><b>SHARP<em>CUTS</em></b><span>☰</span></div>
+              <div class="mini-hero"><small>BARBING SALON</small><h4>Sharp Cuts.<br><em>Clean Style.</em></h4><span class="mini-btn">Book Appointment</span></div>
+              <div class="mini-rows"><div><span>Haircut</span><em>₦2,000</em></div><div><span>Beard Trim</span><em>₦1,000</em></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="body">
+          <div class="tags"><span class="tag">Business Website</span><span class="tag demo">Demo Project</span></div>
+          <h3>Barbing Salon Website</h3>
+          <p>Demo website for a modern barbing salon, featuring services, pricing, gallery, a booking form and WhatsApp contact.</p>
+          <div class="row">
+            <button class="btn btn-primary" type="button" data-open="salonDemo">View Demo</button>
+            <a class="btn btn-ghost" href="https://wa.me/2347016855812?text=Hello%20Samuel%2C%20I%20saw%20your%20barbing%20salon%20demo%20and%20I%20want%20a%20similar%20website." target="_blank" rel="noopener">Get One Like This</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 3 -->
+      <article class="card demo-card reveal">
+        <div class="prev p-resto" data-open="restoDemo" role="button" tabindex="0" aria-label="Open restaurant demo">
+          <span class="tag demo ribbon">Demo Project</span>
+          <div class="win"><div class="bar"><i></i><i></i><i></i></div>
+            <div class="mini r-mini">
+              <div class="mini-nav"><b>MAMA'S<em>KITCHEN</em></b><span>🛒</span></div>
+              <div class="mini-hero"><small>RESTAURANT</small><h4>Delicious<br><em>Home-Style Meals</em></h4><span class="mini-btn">Order Now</span></div>
+              <div class="mini-rows"><div><span>🍛 Jollof Rice &amp; Chicken</span><em>₦3,500</em></div><div><span>🥘 Egusi &amp; Pounded Yam</span><em>₦3,500</em></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="body">
+          <div class="tags"><span class="tag">Business Website</span><span class="tag demo">Demo Project</span></div>
+          <h3>Restaurant Website</h3>
+          <p>Demo restaurant website featuring a food menu with prices, an order basket, location, contact and WhatsApp ordering.</p>
+          <div class="row">
+            <button class="btn btn-primary" type="button" data-open="restoDemo">View Demo</button>
+            <a class="btn btn-ghost" href="https://wa.me/2347016855812?text=Hello%20Samuel%2C%20I%20saw%20your%20restaurant%20demo%20and%20I%20want%20a%20similar%20website." target="_blank" rel="noopener">Get One Like This</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 5. WHY CHOOSE US ================= -->
+<section id="why">
+  <div class="container">
+    <div class="head reveal">
+      <span class="kicker">Why Choose Us</span>
+      <h2>Websites your customers will <span class="grad">enjoy using</span></h2>
+    </div>
+    <div class="grid3">
+      <div class="card why reveal"><span class="ic">📱</span><div><h3>Mobile Responsive</h3><p>Looks great on Android phones, tablets and computers.</p></div></div>
+      <div class="card why reveal"><span class="ic">🎨</span><div><h3>Modern Design</h3><p>Clean, up-to-date layouts that make your brand look credible.</p></div></div>
+      <div class="card why reveal"><span class="ic">🧭</span><div><h3>Easy Navigation</h3><p>Clear menus so visitors find what they need quickly.</p></div></div>
+      <div class="card why reveal"><span class="ic">💬</span><div><h3>WhatsApp Integration</h3><p>Customers can chat with you on WhatsApp in one tap.</p></div></div>
+      <div class="card why reveal"><span class="ic">👍</span><div><h3>User-Friendly</h3><p>Readable text, big buttons and simple layouts for everyone.</p></div></div>
+      <div class="card why reveal"><span class="ic">💼</span><div><h3>Professional Design</h3><p>A polished look that helps customers trust your business.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 6. HOW IT WORKS ================= -->
+<section id="process" class="alt">
+  <div class="container">
+    <div class="head reveal">
+      <span class="kicker">How It Works</span>
+      <h2>Simple, clear <span class="grad">process</span></h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><span class="num">1</span><div><h3>Tell us what you need</h3><p>Share your idea, goals and the pages you want.</p></div></div>
+      <div class="step reveal"><span class="num">2</span><div><h3>We design the website</h3><p>A modern, mobile-friendly design is built for you.</p></div></div>
+      <div class="step reveal"><span class="num">3</span><div><h3>You review it</h3><p>Check the design and content and share your feedback.</p></div></div>
+      <div class="step reveal"><span class="num">4</span><div><h3>We make adjustments</h3><p>Changes are made until it matches what you want.</p></div></div>
+      <div class="step reveal"><span class="num">5</span><div><h3>Your website is ready</h3><p>Your finished website is ready to share with customers.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 7. CONTACT ================= -->
+<section id="contact">
+  <div class="container">
+    <div class="contact reveal">
+      <div>
+        <span class="kicker">Contact</span>
+        <h2>Let's build your <span class="grad">website</span></h2>
+        <p>Tell me about your business, school, church or project. Chat on WhatsApp or call, and let's get started.</p>
+        <div class="c-items">
+          <a class="c-item" href="https://wa.me/2347016855812?text=Hello%20Samuel%20Web%20Solutions%2C%20I%20would%20like%20to%20discuss%20a%20website." target="_blank" rel="noopener">
+            <span class="ic wa"><svg><use href="#wa"/></svg></span><span><small>WhatsApp</small><b>07016855812</b></span>
+          </a>
+          <a class="c-item" href="tel:+2349030671825">
+            <span class="ic">📞</span><span><small>Phone</small><b>09030671825</b></span>
+          </a>
+        </div>
+      </div>
+      <div class="c-actions">
+        <div class="c-brand">SAMUEL WEB SOLUTIONS<small>WEB • DESIGN • DIGITAL SOLUTIONS</small></div>
+        <a class="btn btn-wa" href="https://wa.me/2347016855812?text=Hello%20Samuel%20Web%20Solutions%2C%20I%20would%20like%20to%20discuss%20a%20website." target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Chat on WhatsApp</a>
+        <a class="btn btn-ghost" href="tel:+2349030671825">📞 Call 09030671825</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container foot">
+    <a href="#home" class="logo"><span class="logo-mark">S</span><span class="logo-text"><b>SAMUEL WEB SOLUTIONS</b><small>WEB • DESIGN • DIGITAL SOLUTIONS</small></span></a>
+    <div class="foot-links"><a href="#services">Services</a><a href="#work">My Work</a><a href="#process">How It Works</a><a href="#contact">Contact</a></div>
+    <p>© <span id="year"></span> Samuel Web Solutions</p>
+  </div>
+</footer>
+
+<a class="fab" href="https://wa.me/2347016855812?text=Hello%20Samuel%20Web%20Solutions%2C%20I%20would%20like%20to%20discuss%20a%20website." target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg><use href="#wa"/></svg></a>
+
+<!-- ================= SCREENSHOT VIEWER ================= -->
+<div class="modal" id="shotModal" role="dialog" aria-modal="true" aria-label="Project screenshots">
+  <div class="lb">
+    <span class="lb-title">Oceanography &amp; Fisheries Hub</span>
+    <button class="lb-close" type="button" data-close aria-label="Close">&times;</button>
+    <div class="lb-stage" id="lbStage">
+      <button class="lb-nav lb-prev" type="button" id="lbPrev" aria-label="Previous screenshot">❮</button>
+      <div class="phone"><img id="lbImg" src="images/oceanography-1.jpg" alt="Oceanography Hub screenshot"></div>
+      <button class="lb-nav lb-next" type="button" id="lbNext" aria-label="Next screenshot">❯</button>
+    </div>
+    <p class="lb-count" id="lbCount">1 / 3</p>
+    <a class="btn btn-primary" href="https://019ec0bf-98fa-7893-b6cd-9d89579c4ab1.arena.site/" target="_blank" rel="noopener">View Live Website ↗</a>
+  </div>
+</div>
+
+<!-- ================= BARBING SALON DEMO ================= -->
+<div class="modal demo-modal salon" id="salonDemo" role="dialog" aria-modal="true" aria-label="Barbing salon demo website">
+  <div class="demo-shell">
+    <div class="demo-bar"><span class="tag demo">Demo Project</span><strong>Barbing Salon Website</strong><button class="demo-x" type="button" data-close aria-label="Close demo">&times;</button></div>
+    <div class="demo-body">
+      <div class="demo-note">⚠️ DEMO PROJECT: The business name, prices, address and details are samples only.</div>
+      <div class="s-nav">
+        <div class="s-logo">SHARP<span>CUTS</span></div>
+        <div class="s-links"><button data-scroll="s-services">Services</button><button data-scroll="s-gallery">Gallery</button><button data-scroll="s-book">Book</button><button data-scroll="s-contact">Contact</button></div>
+      </div>
+      <div class="s-hero">
+        <small>BARBING SALON</small>
+        <h2>Sharp Cuts.<br><span>Clean Style.</span></h2>
+        <p>Professional haircuts, beard grooming and styling in a clean, relaxed environment.</p>
+        <div class="s-row"><button class="s-btn" data-scroll="s-book">Book Appointment</button><button class="s-btn o" data-scroll="s-services">View Prices</button></div>
+      </div>
+
+      <div class="s-sec" id="s-services">
+        <h3>Services &amp; Prices</h3>
+        <p class="s-sub">Sample prices for demonstration</p>
+        <div class="s-prices">
+          <div class="s-price"><div><b>Haircut</b><small>Clean cut, any style</small></div><span>₦2,000</span></div>
+          <div class="s-price"><div><b>Beard Trim &amp; Shape</b><small>Neat line-up</small></div><span>₦1,000</span></div>
+          <div class="s-price"><div><b>Haircut + Beard</b><small>Full grooming combo</small></div><span>₦2,500</span></div>
+          <div class="s-price"><div><b>Kids Haircut</b><small>Under 12 years</small></div><span>₦1,500</span></div>
+          <div class="s-price"><div><b>Hair Dye</b><small>Black or colour</small></div><span>₦3,000</span></div>
+          <div class="s-price"><div><b>Clean Shave</b><small>Hot towel finish</small></div><span>₦1,000</span></div>
+        </div>
+      </div>
+
+      <div class="s-sec" id="s-gallery">
+        <h3>Style Gallery</h3>
+        <p class="s-sub">Real photos of your work would appear here</p>
+        <div class="s-gallery">
+          <div class="s-tile">Low Fade</div><div class="s-tile">Waves</div><div class="s-tile">Afro Shape-up</div>
+          <div class="s-tile">Taper Cut</div><div class="s-tile">Beard Line-up</div><div class="s-tile">Kids Cut</div>
+        </div>
+      </div>
+
+      <div class="s-sec" id="s-book">
+        <h3>Book an Appointment</h3>
+        <p class="s-sub">Pick a service and time that suits you</p>
+        <form class="s-form" id="salonForm">
+          <label>Your Name<input type="text" required placeholder="Enter your name"></label>
+          <label>Phone Number<input type="tel" required placeholder="080..."></label>
+          <label class="full">Service
+            <select required>
+              <option value="">Choose a service</option>
+              <option>Haircut</option><option>Beard Trim &amp; Shape</option><option>Haircut + Beard</option>
+              <option>Kids Haircut</option><option>Hair Dye</option><option>Clean Shave</option>
+            </select>
+          </label>
+          <label>Date<input type="date" id="sDate" required></label>
+          <label>Time<input type="time" required></label>
+          <button class="s-btn full" type="submit">Book via WhatsApp</button>
+        </form>
+      </div>
+
+      <div class="s-sec" id="s-contact">
+        <h3>Visit Us</h3>
+        <p class="s-sub">Opening hours and location</p>
+        <div class="s-info">
+          <div class="s-box"><h4>🕘 Opening Hours</h4><p>Mon – Sat: 8:00am – 9:00pm<br>Sunday: 2:00pm – 8:00pm</p></div>
+          <div class="s-box"><h4>📍 Location</h4><p>Sample Address, Your City</p><button class="s-btn" data-demo-msg="Demo only: on a real salon website, this button opens WhatsApp chat with the salon.">💬 Chat on WhatsApp</button></div>
+        </div>
+      </div>
+
+      <div class="demo-cta">
+        <h4>Want a website like this for your salon?</h4>
+        <p>Samuel Web Solutions can build a modern, mobile-friendly website for your business.</p>
+        <a class="btn btn-wa" href="https://wa.me/2347016855812?text=Hello%20Samuel%2C%20I%20saw%20your%20barbing%20salon%20demo%20and%20I%20want%20a%20similar%20website." target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Chat on WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= RESTAURANT DEMO ================= -->
+<div class="modal demo-modal resto" id="restoDemo" role="dialog" aria-modal="true" aria-label="Restaurant demo website">
+  <div class="demo-shell">
+    <div class="demo-bar"><span class="tag demo">Demo Project</span><strong>Restaurant Website</strong><button class="demo-x" type="button" data-close aria-label="Close demo">&times;</button></div>
+    <div class="demo-body">
+      <div class="demo-note">⚠️ DEMO PROJECT: The restaurant name, menu, prices and address are samples only.</div>
+      <div class="r-nav">
+        <div class="r-logo">MAMA'S <span>KITCHEN</span></div>
+        <div class="r-links"><button data-scroll="r-menu">Menu</button><button data-scroll="r-order">Order</button><button data-scroll="r-contact">Location</button></div>
+      </div>
+      <div class="r-hero">
+        <div class="r-emojis">🍛🍗🥘</div>
+        <h2>Delicious <span>Home-Style</span> Meals</h2>
+        <p>Freshly cooked local dishes, grills and drinks. Browse the menu and order in minutes.</p>
+        <div class="s-row"><button class="r-btn" data-scroll="r-menu">View Menu</button><button class="r-btn o" data-scroll="r-order">Order Now</button></div>
+      </div>
+
+      <div class="r-sec" id="r-menu">
+        <h3>Our Menu</h3>
+        <p class="r-sub">Tap <b>+</b> to add items to your order (sample prices)</p>
+        <div class="r-tabs" id="rTabs"></div>
+        <div class="r-menu" id="rMenu"></div>
+      </div>
+
+      <div class="r-sec" id="r-order">
+        <h3>Your Order</h3>
+        <p class="r-sub">Review your items before ordering</p>
+        <div class="r-order">
+          <div id="rLines"><p class="r-empty">Your order is empty. Add items from the menu.</p></div>
+          <div class="r-total"><span>Total</span><span id="rTotal">₦0</span></div>
+          <button class="r-btn" id="rSend" type="button">Order via WhatsApp</button>
+          <button class="r-clear" id="rClear" type="button">Clear order</button>
+        </div>
+      </div>
+
+      <div class="r-sec" id="r-contact">
+        <h3>Location &amp; Contact</h3>
+        <p class="r-sub">Visit us or order for pickup</p>
+        <div class="r-info">
+          <div class="r-box"><h4>🕘 Opening Hours</h4><p>Mon – Sat: 9:00am – 10:00pm<br>Sunday: 12:00pm – 9:00pm</p></div>
+          <div class="r-box"><h4>📍 Address</h4><p>Sample Address, Your City</p><button class="r-btn" data-demo-msg="Demo only: on a real restaurant website, this button calls or opens WhatsApp with the restaurant.">📞 Call Restaurant</button></div>
+        </div>
+        <div class="r-map">📍<br>Google Map of the restaurant location<br>would appear here</div>
+      </div>
+
+      <div class="demo-cta">
+        <h4>Want a website like this for your restaurant?</h4>
+        <p>Samuel Web Solutions can build a menu website with easy WhatsApp ordering.</p>
+        <a class="btn btn-wa" href="https://wa.me/2347016855812?text=Hello%20Samuel%2C%20I%20saw%20your%20restaurant%20demo%20and%20I%20want%20a%20similar%20website." target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Chat on WhatsApp</a>
+      </div>
+
+      <button class="r-cartbar" id="rCartbar" type="button" data-scroll="r-order"><span id="rCartText">🛒 0 items</span><span>View Order →</span></button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+  var $ = function(s,c){return (c||document).querySelector(s);};
+  var $$ = function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s));};
+
+  /* ---------- Screenshots: try .jpg, then .png, then show placeholder ---------- */
+  var PH = "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(
+    '<svg xmlns="http://www.w3.org/2000/svg" width="360" height="760"><rect width="100%" height="100%" fill="#0e1829"/>' +
+    '<text x="50%" y="47%" fill="#22d3ee" font-family="Arial" font-size="22" font-weight="700" text-anchor="middle">Screenshot</text>' +
+    '<text x="50%" y="52%" fill="#9fb0c8" font-family="Arial" font-size="14" text-anchor="middle">Add image to the images folder</text></svg>');
+  function fallback(img){
+    var s = img.getAttribute("src") || "";
+    if(!img.dataset.fb && /\.jpg$/i.test(s)){ img.dataset.fb = "png"; img.src = s.replace(/\.jpg$/i, ".png"); return; }
+    if(img.dataset.fb !== "ph"){ img.dataset.fb = "ph"; img.src = PH; }
+  }
+  $$("img").forEach(function(img){
+    img.addEventListener("error", function(){ fallback(img); });
+    if(img.complete && img.naturalWidth === 0 && img.getAttribute("src")) fallback(img);
+  });
+
+  /* ---------- Header + mobile menu ---------- */
+  var header = $("#header"), burger = $("#burger"), menu = $("#menu");
+  function onScroll(){ header.classList.toggle("scrolled", window.scrollY > 20); }
+  window.addEventListener("scroll", onScroll, {passive:true}); onScroll();
+
+  function setMenu(open){
+    menu.classList.toggle("open", open);
+    burger.classList.toggle("on", open);
+    header.classList.toggle("menu-open", open);
+    burger.setAttribute("aria-expanded", open ? "true" : "false");
+  }
+  burger.addEventListener("click", function(){ setMenu(!menu.classList.contains("open")); });
+  $$("#menu a").forEach(function(a){ a.addEventListener("click", function(){ setMenu(false); }); });
+
+  /* ---------- Active menu link + reveal animations ---------- */
+  var links = $$('#menu a[href^="#"]');
+  if("IntersectionObserver" in window){
+    var spy = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          links.forEach(function(l){ l.classList.toggle("active", l.getAttribute("href") === "#" + e.target.id); });
+        }
+      });
+    }, {rootMargin:"-45% 0px -50% 0px"});
+    links.forEach(function(l){ var s = $(l.getAttribute("href")); if(s) spy.observe(s); });
+
+    var rev = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("visible"); rev.unobserve(e.target); } });
+    }, {threshold:0.12});
+    $$(".reveal").forEach(function(el){ rev.observe(el); });
+  } else {
+    $$(".reveal").forEach(function(el){ el.classList.add("visible"); });
+  }
+
+  /* ---------- Popups (Android back button closes them) ---------- */
+  var openId = null;
+  function openModal(id){
+    var m = document.getElementById(id); if(!m) return;
+    if(openId) closeModal(true);
+    m.classList.add("open"); document.body.classList.add("lock"); openId = id;
+    var body = $(".demo-body", m); if(body) body.scrollTop = 0;
+    history.pushState({modal:id}, "");
+  }
+  function closeModal(fromBack){
+    if(!openId) return;
+    document.getElementById(openId).classList.remove("open");
+    document.body.classList.remove("lock"); openId = null;
+    if(!fromBack && history.state && history.state.modal) history.back();
+  }
+  window.addEventListener("popstate", function(){ closeModal(true); });
+
+  $$("[data-open]").forEach(function(el){
+    function go(){ if(el.dataset.index !== undefined) setSlide(+el.dataset.index); openModal(el.dataset.open); }
+    el.addEventListener("click", go);
+    el.addEventListener("keydown", function(e){ if(e.key === "Enter" || e.key === " "){ e.preventDefault(); go(); } });
+  });
+  $$("[data-close]").forEach(function(b){ b.addEventListener("click", function(){ closeModal(); }); });
+  $$(".modal").forEach(function(m){ m.addEventListener("click", function(e){ if(e.target === m) closeModal(); }); });
+
+  /* ---------- Screenshot viewer ---------- */
+  var slides = ["images/oceanography-1.jpg","images/oceanography-2.jpg","images/oceanography-3.jpg"];
+  var alts = ["Homepage","Course filters","Course cards"];
+  var cur = 0, lbImg = $("#lbImg");
+  function setSlide(i){
+    cur = (i + slides.length) % slides.length;
+    delete lbImg.dataset.fb;
+    lbImg.src = slides[cur];
+    lbImg.alt = "Oceanography Hub: " + alts[cur];
+    $("#lbCount").textContent = (cur + 1) + " / " + slides.length;
+  }
+  $("#lbPrev").addEventListener("click", function(){ setSlide(cur - 1); });
+  $("#lbNext").addEventListener("click", function(){ setSlide(cur + 1); });
+  var tx = 0, stage = $("#lbStage");
+  stage.addEventListener("touchstart", function(e){ tx = e.changedTouches[0].screenX; }, {passive:true});
+  stage.addEventListener("touchend", function(e){
+    var d = e.changedTouches[0].screenX - tx;
+    if(Math.abs(d) > 40) setSlide(cur + (d < 0 ? 1 : -1));
+  }, {passive:true});
+
+  document.addEventListener("keydown", function(e){
+    if(!openId) return;
+    if(e.key === "Escape") closeModal();
+    if(openId === "shotModal"){
+      if(e.key === "ArrowRight") setSlide(cur + 1);
+      if(e.key === "ArrowLeft") setSlide(cur - 1);
+    }
+  });
+
+  /* ---------- Scroll buttons inside demos ---------- */
+  $$("[data-scroll]").forEach(function(b){
+    b.addEventListener("click", function(){
+      var t = document.getElementById(b.dataset.scroll);
+      if(t) t.scrollIntoView({behavior:"smooth", block:"start"});
+    });
+  });
+
+  /* ---------- Toast messages ---------- */
+  var toastEl = $("#toast"), toastTimer;
+  function toast(msg){
+    toastEl.textContent = msg; toastEl.classList.add("show");
+    clearTimeout(toastTimer); toastTimer = setTimeout(function(){ toastEl.classList.remove("show"); }, 4000);
+  }
+  $$("[data-demo-msg]").forEach(function(b){ b.addEventListener("click", function(){ toast(b.dataset.demoMsg); }); });
+
+  /* ---------- Salon booking (demo) ---------- */
+  var today = new Date();
+  var pad = function(n){ return (n < 10 ? "0" : "") + n; };
+  $("#sDate").min = today.getFullYear() + "-" + pad(today.getMonth() + 1) + "-" + pad(today.getDate());
+  $("#salonForm").addEventListener("submit", function(e){
+    e.preventDefault();
+    toast("✅ Demo only: on a real salon website, this booking would be sent straight to the salon's WhatsApp.");
+    this.reset();
+  });
+
+  /* ---------- Restaurant menu & order (demo) ---------- */
+  var MENU = {
+    "Rice Dishes":[["🍛","Jollof Rice & Chicken",3500],["🍚","Fried Rice & Turkey",4000],["🍲","White Rice & Stew",2500],["🥘","Ofada Rice & Sauce",3000]],
+    "Soups & Swallow":[["🥘","Egusi & Pounded Yam",3500],["🥬","Efo Riro & Amala",3000],["🍵","Okra Soup & Eba",2800],["🌶️","Goat Meat Pepper Soup",3000]],
+    "Grills":[["🥩","Beef Suya",2000],["🍗","Grilled Chicken",3500],["🐟","Grilled Fish",5000],["🔥","Asun (Spicy Goat)",3000]],
+    "Drinks":[["🍹","Chapman",1500],["🧃","Zobo",800],["🍊","Fresh Juice",1500],["💧","Bottled Water",300]]
+  };
+  var naira = function(n){ return "₦" + n.toLocaleString("en-NG"); };
+  var cart = {};
+  var tabs = $("#rTabs"), grid = $("#rMenu");
+
+  Object.keys(MENU).forEach(function(cat, i){
+    var b = document.createElement("button");
+    b.type = "button"; b.className = "r-tab" + (i === 0 ? " on" : ""); b.textContent = cat;
+    b.addEventListener("click", function(){
+      $$(".r-tab", tabs).forEach(function(t){ t.classList.remove("on"); });
+      b.classList.add("on"); renderMenu(cat);
+    });
+    tabs.appendChild(b);
+  });
+
+  function renderMenu(cat){
+    grid.innerHTML = "";
+    MENU[cat].forEach(function(item){
+      var row = document.createElement("div");
+      row.className = "r-item";
+      row.innerHTML = '<span class="r-emoji">' + item[0] + '</span><div class="info"><b></b><span>' + naira(item[2]) + '</span></div><button class="r-add" type="button" aria-label="Add to order">+</button>';
+      $("b", row).textContent = item[1];
+      var add = $(".r-add", row);
+      add.addEventListener("click", function(){
+        if(!cart[item[1]]) cart[item[1]] = {price:item[2], qty:0};
+        cart[item[1]].qty++;
+        add.classList.add("pop"); setTimeout(function(){ add.classList.remove("pop"); }, 150);
+        renderCart();
+      });
+      grid.appendChild(row);
+    });
+  }
+
+  function renderCart(){
+    var lines = $("#rLines"), total = 0, count = 0, names = Object.keys(cart);
+    lines.innerHTML = "";
+    if(!names.length){ lines.innerHTML = '<p class="r-empty">Your order is empty. Add items from the menu.</p>'; }
+    names.forEach(function(name){
+      var it = cart[name]; total += it.price * it.qty; count += it.qty;
+      var l = document.createElement("div");
+      l.className = "r-line";
+      l.innerHTML = '<span class="n"></span><span class="r-qty"><button type="button" data-a="-">−</button>' + it.qty + '<button type="button" data-a="+">+</button></span>';
+      $(".n", l).textContent = name + " · " + naira(it.price * it.qty);
+      $$("button", l).forEach(function(b){
+        b.addEventListener("click", function(){
+          it.qty += (b.dataset.a === "+" ? 1 : -1);
+          if(it.qty <= 0) delete cart[name];
+          renderCart();
+        });
+      });
+      lines.appendChild(l);
+    });
+    $("#rTotal").textContent = naira(total);
+    $("#rCartText").textContent = "🛒 " + count + (count === 1 ? " item" : " items") + " • " + naira(total);
+    $("#rCartbar").classList.toggle("show", count > 0);
+  }
+
+  $("#rSend").addEventListener("click", function(){
+    if(!Object.keys(cart).length){ toast("Please add some items from the menu first."); return; }
+    toast("✅ Demo only: on a real restaurant website, this order would be sent to the restaurant's WhatsApp.");
+  });
+  $("#rClear").addEventListener("click", function(){ cart = {}; renderCart(); });
+
+  renderMenu(Object.keys(MENU)[0]);
+  renderCart();
+
+  /* ---------- Footer year ---------- */
+  $("#year").textContent = new Date().getFullYear();
+})();
+</script>
+<style>
+.screenshots {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.screenshots h2 {
+  font-size: 32px;
+  margin-bottom: 25px;
+}
+
+.screenshots img {
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  display: block;
+  margin: 25px auto;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+}
+</style>
+  <section class="screenshots">
+  <h2>Our Work</h2>
+
+  <img src="Screenshot_20260927_013154_Chrome.jpg" alt="Samuel Web Solutions screenshot">
+  <img src="Screenshot_20260927_013202_Chrome.jpg" alt="Samuel Web Solutions screenshot">
+  <img src="Screenshot_20260927_013208_Chrome.jpg" alt="Samuel Web Solutions screenshot">
+</section>
+</body>
+</html>
